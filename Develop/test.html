@@ -8,38 +8,92 @@
 <body>
     <script>
 // do you want lowercase?
-var choiceLC = confirm("Would you like to have lowercase letters?")
-console.log(choiceLC)
-// do you want uppercase?
-var choiceUC = confirm("Would you like to have uppercase letters?")
-console.log(choiceUC)
-// do you want to include numbers?
-var choiceNUM = confirm("Would you like to have numbers?")
-console.log(choiceNUM)
-// do you want  special numbers?
-var choiceSpecChar = confirm("Would you like to have special characters?")
-console.log(choiceSpecChar)
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
+// var choiceLC = confirm("Would you like to have lowercase letters?")
+// console.log(choiceLC)
+// // do you want uppercase?
+// var choiceUC = confirm("Would you like to have uppercase letters?")
+// console.log(choiceUC)
+// // do you want to include numbers?
+// var choiceNUM = confirm("Would you like to have numbers?")
+// console.log(choiceNUM)
+// // do you want  special numbers?
+// var choiceSpecChar = confirm("Would you like to have special characters?")
+// console.log(choiceSpecChar)
+// // WHEN prompted for the length of the password
+// // THEN I choose a length of at least 8 characters and no more than 128 characters
 
 
 
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
+// // WHEN prompted for password criteria
+// // THEN I select which criteria to include in the password
 
-//if user chose wrong amount of symbols, then return error and ask to pick again
+// //if user chose wrong amount of symbols, then return error and ask to pick again
 
-function passGen(){
+// function passGen(){
+//     var length = prompt("Please choose amount of symbols from 8 to 128")
+//     console.log(length)
+//     if(length<8 ||length>128){
+//     alert("Error!Please choose amount of characters between 8 to 128")
+//    return passGen()
+// }
+  
+// }
+
+// passGen()
+
+
+
+// var lowercase ="qwertyuiopasdfghjklzxcvbnm".split("")
+// var uppercase ="QWERTYUIOPASDFGHJKLZXCVBNM".split("")
+// var numbers ="1234567890".split("")
+// var specialChar ="~-_=+[]:;?!@#$%^&*".split("")
+
+
+
+// function randomPick(string){
+//     return Math.floor(Math.random() * string.Length);
+// }
+// var masterBucket =[]
+// var confirms = 0
+
+// if (choiceLC =true){
+//     // pick a random character from lowercase array and add in master bucket
+//    masterBucket.push(randomPick(lowercase))
+//    confirms = confirms+1
+//    console.log(masterBucket)
+//    console.log(confirms)
+//   }
+// if (choiceUC =true){
+//     // pick a random character from uppercase array
+//     masterBucket.push(randomPick(uppercase))
+//      confirms = confirms+1
+//      console.log(masterBucket)
+//    console.log(confirms)
+     
+//   }
+// if (choiceNUM =true){
+//     // pick a random character from numbers array
+//     masterBucket.push(randomPick(numbers)) 
+//     confirms = confirms+1
+//     console.log(masterBucket)
+//    console.log(confirms)
+//   }
+// if (specialChar =true){
+//     // pick a random special character from specialChar array
+//     masterBucket.push(randomPick(specialChar)) 
+//     confirms = confirms+1
+//     console.log(masterBucket)
+//    console.log(confirms)
+//   } 
+
+
+  function passGen(){
     var length = prompt("Please choose amount of symbols from 8 to 128")
-    console.log(length)
+        console.log(length)
     if(length<8 ||length>128){
     alert("Error!Please choose amount of characters between 8 to 128")
    return passGen()
-}
-  
-}
-
-passGen()
+} }
 
 </script>
 </body>

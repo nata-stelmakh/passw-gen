@@ -40,7 +40,7 @@ var choiceSpecChar = confirm("Would you like to have special characters?")
 // THEN I choose a length of at least 8 characters and no more than 128 characters
 
 function passGen(){
-    var length = prompt("Please choose amount of symbols from 8 to 128")
+    var length = (prompt("Please choose amount of symbols from 8 to 128"))
     console.log(length)
     if(length<8 ||length>128){
     alert("Error!Please choose amount of characters between 8 to 128")
@@ -61,33 +61,42 @@ if (choiceLC =true){
     // pick a random character from lowercase array and add in master bucket
    masterBucket.push(randomPick(lowercase))
    confirms = confirms+1
+   console.log(masterBucket)
+   console.log(confirms)
   }
 if (choiceUC =true){
     // pick a random character from uppercase array
     masterBucket.push(randomPick(uppercase))
      confirms = confirms+1
+     console.log(masterBucket)
+   console.log(confirms)
   }
 if (choiceNUM =true){
     // pick a random character from numbers array
     masterBucket.push(randomPick(numbers)) 
     confirms = confirms+1
+    console.log(masterBucket)
+   console.log(confirms)
   }
 if (specialChar =true){
     // pick a random special character from specialChar array
     masterBucket.push(randomPick(specialChar)) 
     confirms = confirms+1
+    console.log(masterBucket)
+   console.log(confirms)
   } 
 
 //if a user didnt pick any special characters, ask him to start over
 if (confirms===0){
     alert("You need to pick at least one type of special symbols!")
     writePassword()
-} 
-//1.we need a list of characters
-//2.we need to find out what characters user wants
-//3.we need to create a list from the characters we need tou use
-//4.we need to pick random characters 
-//5.return a password back
+} else{
+
+ function generatePassword(){
+     randomPick(masterBucket)*length
+
+ }
+}
 
 
 
