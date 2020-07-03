@@ -1,3 +1,93 @@
+//! AND HERE WE WRITE A FUNCTION generatePassword()"
+
+// WHEN I click the button to generate a password
+generatePassword() 
+{
+var lowercase ="qwertyuiopasdfghjklzxcvbnm".split("");
+var uppercase ="QWERTYUIOPASDFGHJKLZXCVBNM".split("");
+var numbers ="1234567890".split("");
+var specialChar ="~-_=+[]:;?!@#$%^&*".split("");
+var newpassword="";
+var Bucket = [];
+
+
+function randomPick(string){
+    return string [Math.floor(Math.random() * string.Length)];
+}
+
+// THEN I am presented with a series of prompts for password criteria
+
+// we need to create a list of characters that we will choose the random characters later
+function masterBucket(){
+
+  // var Bucket =[];
+  var confirms = 0;
+
+//do you want lowercase?
+var choiceLC = confirm("Would you like to have lowercase letters?")
+console.log(choiceLC);
+if (choiceLC =true){
+// pick a random character from lowercase array and add in master bucket
+  Bucket.push(randomPick(lowercase));
+ confirms = confirms+1
+  
+}
+// do you want uppercase?
+var choiceUC = confirm("Would you like to have uppercase letters?")
+console.log(choiceUC);
+if (choiceUC =true){
+  // pick a random character from uppercase array
+  Bucket.push(randomPick(uppercase));
+   confirms = confirms+1
+        
+}
+// do you want to include numbers?
+var choiceNUM = confirm("Would you like to have numbers?")
+console.log(choiceNUM);
+if (choiceNUM =true){
+  // pick a random character from numbers array
+  Bucket.push(randomPick(numbers));
+  confirms = confirms+1
+}
+// do you want  special characters?
+var choiceSpecChar = confirm("Would you like to have special characters?")
+console.log(choiceSpecChar);
+if (specialChar =true){
+  // pick a random special character from specialChar array
+  Bucket.push(randomPick(specialChar));
+  confirms = confirms+1
+    
+}
+if (confirms === 0){
+  alert("Please choose at least one group af characters!")
+  masterBucket()
+}  
+console.log(Bucket)
+}
+masterBucket()
+// THEN I choose a length of at least 8 characters and no more than 128 characters
+
+function passGen(){
+  var length = parseInt(
+      prompt("Please choose amount of symbols from 8 to 128")
+      );
+  console.log(length)
+
+  if(isNaN(length)||length<8 ||length>128){
+  alert("Error!Please choose amount of characters between 8 to 128")
+ return passGen()
+ 
+}
+}
+passGen()
+
+for (var index = newpassword.length; index < length; index++){
+  newpassword += randomPick(Bucket);
+  console.log(newpassword)
+}
+ 
+}
+
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -13,93 +103,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-//! AND HERE WE WRITE A FUNCTION generatePassword()"
-
-// WHEN I click the button to generate a password
-
-var lowercase ="qwertyuiopasdfghjklzxcvbnm".split("")
-var uppercase ="QWERTYUIOPASDFGHJKLZXCVBNM".split("")
-var numbers ="1234567890".split("")
-var specialChar ="~-_=+[]:;?!@#$%^&*".split("")
-
-// THEN I am presented with a series of prompts for password criteria
-
-
-// do you want lowercase?
-var choiceLC = confirm("Would you like to have lowercase letters?")
-// do you want uppercase?
-var choiceUC = confirm("Would you like to have uppercase letters?")
-// do you want to include numbers?
-var choiceNUM = confirm("Would you like to have numbers?")
-// do you want  special numbers?
-var choiceSpecChar = confirm("Would you like to have special characters?")
-// WHEN prompted for the length of the password
-
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-
-function passGen(){
-    var length = (prompt("Please choose amount of symbols from 8 to 128"))
-    console.log(length)
-    if(length<8 ||length>128){
-    alert("Error!Please choose amount of characters between 8 to 128")
-   return passGen()
-}
-}
-passGen()
- //after chosen criteria, we have length and types of additional symbols that we need to include at least one of each
-// to fill rest of the password  create a master bucket and randomly choose characters
-//
-function randomPick(string){
-    return Math.floor(Math.random() * string.Length);
-}
-var masterBucket =[]
-var confirms = 0
-
-if (choiceLC =true){
-    // pick a random character from lowercase array and add in master bucket
-   masterBucket.push(randomPick(lowercase))
-   confirms = confirms+1
-   console.log(masterBucket)
-   console.log(confirms)
-  }
-if (choiceUC =true){
-    // pick a random character from uppercase array
-    masterBucket.push(randomPick(uppercase))
-     confirms = confirms+1
-     console.log(masterBucket)
-   console.log(confirms)
-  }
-if (choiceNUM =true){
-    // pick a random character from numbers array
-    masterBucket.push(randomPick(numbers)) 
-    confirms = confirms+1
-    console.log(masterBucket)
-   console.log(confirms)
-  }
-if (specialChar =true){
-    // pick a random special character from specialChar array
-    masterBucket.push(randomPick(specialChar)) 
-    confirms = confirms+1
-    console.log(masterBucket)
-   console.log(confirms)
-  } 
-
-//if a user didnt pick any special characters, ask him to start over
-if (confirms===0){
-    alert("You need to pick at least one type of special symbols!")
-    writePassword()
-} else{
-
- function generatePassword(){
-     randomPick(masterBucket)*length
-
- }
-}
-
-
-
 
 // WHEN prompted for character types to include in the password
 // THEN I choose lowercase, uppercase, numeric, and/or special characters
