@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body>
+    <script>
+// do you want lowercase?
+var choiceLC = confirm("Would you like to have lowercase letters?")
+console.log(choiceLC)
+// do you want uppercase?
+var choiceUC = confirm("Would you like to have uppercase letters?")
+console.log(choiceUC)
+// do you want to include numbers?
+var choiceNUM = confirm("Would you like to have numbers?")
+console.log(choiceNUM)
+// do you want  special numbers?
+var choiceSpecChar = confirm("Would you like to have special characters?")
+console.log(choiceSpecChar)
+// WHEN prompted for the length of the password
+// THEN I choose a length of at least 8 characters and no more than 128 characters
+
+
+
+// WHEN prompted for password criteria
+// THEN I select which criteria to include in the password
+
+//if user chose wrong amount of symbols, then return error and ask to pick again
+
+function passGen(){
+    var length = prompt("Please choose amount of symbols from 8 to 128")
+    console.log(length)
+    if(length<8 ||length>128){
+    alert("Error!Please choose amount of characters between 8 to 128")
+   return passGen()
+}
+  
+}
+
+passGen()
+
+</script>
+</body>
+</html>
