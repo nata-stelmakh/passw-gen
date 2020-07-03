@@ -22,7 +22,7 @@ generateBtn.addEventListener("click", writePassword);
 var lowercase ="qwertyuiopasdfghjklzxcvbnm".split("")
 var uppercase ="QWERTYUIOPASDFGHJKLZXCVBNM".split("")
 var numbers ="1234567890".split("")
-var specialChar ="~-_=+\|[]:;?!@#$%^&*".split("")
+var specialChar ="~-_=+[]:;?!@#$%^&*".split("")
 
 // THEN I am presented with a series of prompts for password criteria
 
@@ -36,6 +36,7 @@ var choiceNUM = confirm("Would you like to have numbers?")
 // do you want  special numbers?
 var choiceSpecChar = confirm("Would you like to have special characters?")
 // WHEN prompted for the length of the password
+
 // THEN I choose a length of at least 8 characters and no more than 128 characters
 
 function passGen(){
@@ -47,25 +48,41 @@ function passGen(){
 }
 }
 passGen()
-
-
-
  //after chosen criteria, we have length and types of additional symbols that we need to include at least one of each
 // to fill rest of the password  create a master bucket and randomly choose characters
 //
+function randomPick(string){
+    return Math.floor(Math.random() * string.Length);
+}
+var masterBucket =[]
+var confirms = 0
+
 if (choiceLC =true){
     // pick a random character from lowercase array and add in master bucket
-}
+   masterBucket.push(randomPick(lowercase))
+   confirms = confirms+1
+  }
 if (choiceUC =true){
     // pick a random character from uppercase array
-}if (choiceNUM =true){
+    masterBucket.push(randomPick(uppercase))
+     confirms = confirms+1
+  }
+if (choiceNUM =true){
     // pick a random character from numbers array
-}if (specialChar =true){
+    masterBucket.push(randomPick(numbers)) 
+    confirms = confirms+1
+  }
+if (specialChar =true){
     // pick a random special character from specialChar array
-}
+    masterBucket.push(randomPick(specialChar)) 
+    confirms = confirms+1
+  } 
 
-
-
+//if a user didnt pick any special characters, ask him to start over
+if (confirms===0){
+    alert("You need to pick at least one type of special symbols!")
+    writePassword()
+} 
 //1.we need a list of characters
 //2.we need to find out what characters user wants
 //3.we need to create a list from the characters we need tou use
