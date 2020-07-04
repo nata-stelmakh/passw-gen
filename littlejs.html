@@ -12,21 +12,34 @@ var lowercase ="qwertyuiopasdfghjklzxcvbnm".split("");
 var uppercase ="QWERTYUIOPASDFGHJKLZXCVBNM".split("");
 var numbers ="1234567890".split("");
 var specialChar ="~-_=+[]:;?!@#$%^&*".split("");
-var newpassword=[]
-
-//create AlmostaPassword and a MasterBucket
-
-// function makeAPassword(){
-
-function prePassword(){
-
 var AlmostaPassword =[];
 var MasterBucket =[];
+var passwordLength = 0;
 var confirms = 0;
-
-//ask what type of characters do user wants
 var choiceLC = confirm("Would you like to have lowercase letters?")
-//put them in array AlmostaPassword
+var choiceUC = confirm("Would you like to have uppercase letters?")
+var choiceNUM = confirm("Would you like to have numbers?")
+var choiceSpecChar = confirm("Would you like to have special characters?")
+var passwordLength = parseInt(prompt("Please choose amount of symbols from 8 to 128"))
+//create AlmostaPassword and a MasterBucket
+
+function passLength(){
+      if(passwordLength<8 ||passwordLength>128){
+      alert("Error!Please choose amount of characters between 8 to 128")
+      return passLength()
+ } 
+
+console.log(passwordLength)
+}
+passLength();
+
+
+// function pickRandom(array){
+//     array[Math.floor(Math.random() * array.length)];
+// };
+
+function prePassword(){
+//put one random character from a chosen group in array AlmostaPassword
 if (choiceLC === true){ 
 // pick a random character from lowercase array and add in an array AlmostaPassword
 var randomLowerCase = lowercase[Math.floor(Math.random() * lowercase.length)];
@@ -34,11 +47,10 @@ AlmostaPassword.push(randomLowerCase);
 //create a masteBucket array with approved type of characters
 MasterBucket = MasterBucket.concat(lowercase)
 //count confirms to define in the end that user chose  at least 1 type of characters
- confirms = confirms + 1
+ confirms ++
  console.log(confirms)
 }
 
-var choiceUC = confirm("Would you like to have uppercase letters?")
 //put them in array AlmostaPassword
 if (choiceUC === true){
 // pick a random character from uppercase array and add in an array AlmostaPassword
@@ -51,7 +63,6 @@ MasterBucket = MasterBucket.concat(uppercase)
  console.log(confirms)
 }
 
-var choiceNUM = confirm("Would you like to have numbers?")
 //put them in array AlmostaPassword
 if (choiceNUM === true){
 // pick a random character from  array and add in an array AlmostaPassword
@@ -64,7 +75,6 @@ MasterBucket = MasterBucket.concat(numbers)
  console.log(confirms)
 }
 
-var choiceSpecChar = confirm("Would you like to have special characters?")
 //put them in array AlmostaPassword
 if (choiceSpecChar === true){
 // pick a random character from  array and add in an array AlmostaPassword
@@ -80,39 +90,63 @@ if (confirms === 0){
     alert("Please choose at least one group of characters")
     return prePassword()
 }
-// return AlmostaPassword;
-// return MasterBucket;
+// return AlmostaPassword
+// return MasterBucket
+
 console.log(AlmostaPassword)
 console.log(MasterBucket)
+
+var difference = passwordLength-confirms
+console.log(difference)
+
+for (i=0;i<difference;i++){
+    var randomChar =MasterBucket[Math.floor(Math.random() * MasterBucket.length)];
+    AlmostaPassword.push(randomChar);
+    AlmostaPassword.join;
+      console.log(AlmostaPassword)
+
+    // newpassword = AlmostaPassword.join;
+
+   
+}
+// return newpassword
+// console.log(newpassword)
+
+
+// return newpassword
+// for ( i = confirms; i < passwordLength;){
+//     var randomChar =MasterBucket[Math.floor(Math.random() * MasterBucket.length)];
+//     newpassword.push(randomChar); 
+//     console.log(newpassword)
+// }
 }
 prePassword();
 
-
-function passLength(){
-  var passwordLength = 
-      parseInt(prompt("Please choose amount of symbols from 8 to 128"));
-      console.log(passwordLength)
-      if(passwordLength<8 ||passwordLength>128){
-      alert("Error!Please choose amount of characters between 8 to 128")
-      return passLength()
- } 
-//  return passwordLength;
-}
-passLength();
-
+// function lastStep(newpassword){
+// newpassword.concat(AlmostaPassword);
+// newpassword.join
+// console.log(newpasswod)
+// return newpassword
+// }
+// lastStep();
 //while there is a difference in amount of characters between Almostapassword and desired password length, keep adding characters  from MasterBucket to AlmostaPassword
+// function difference(){
+//     return passwordLength-AlmostaPassword.length;
 
-function newpassword() {
-   var newpassword = [];
-   var AlmostAPasswordlength = AlmostaPassword.length;
-   var randomCharacter  = MasterBucket[Math.floor(Math.random() * MasterBucket.length)];
-//    var charactersLength = characters.length;
-   for ( var i = AlmostAPasswordlength; i < passwordLength; i++ ) {
-      newpassword = newpassword.push(randomcharacter);
-      console.log(newpassword)
-   }
-  
-}
+// }
+// difference()
+
+// function newpasswordgen() {
+//    var AlmostAPasswordlength = AlmostaPassword.length;
+//    var randomCharacter  = MasterBucket[Math.floor(Math.random() * MasterBucket.length)];
+// //    var charactersLength = characters.length;
+//    for ( var i = AlmostAPasswordlength; i < passwordLength; i++ ) {
+//       newpassword = newpassword.push(randomcharacter);
+//       console.log(newpassword)
+//    }
+// }
+// newpasswordgen();
+// }
 // while( AlmostaPassword.length < passwordLength){
 // var randomChar = MasterBucket[Math.floor(Math.random() * MasterBucket.length)];
 // AlmostaPassword.push(randomChar);

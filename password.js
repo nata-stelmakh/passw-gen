@@ -1,18 +1,43 @@
+
+
+
+
 var lowercase ="qwertyuiopasdfghjklzxcvbnm".split("");
 var uppercase ="QWERTYUIOPASDFGHJKLZXCVBNM".split("");
 var numbers ="1234567890".split("");
 var specialChar ="~-_=+[]:;?!@#$%^&*".split("");
-var newpassword=[]
+var AlmostaPassword =[];
+var MasterBucket =[];
+var passwordLength = 0;
+var confirms = 0;
+var choiceLC = confirm("Would you like to have lowercase letters?")
+var choiceUC = confirm("Would you like to have uppercase letters?")
+var choiceNUM = confirm("Would you like to have numbers?")
+var choiceSpecChar = confirm("Would you like to have special characters?")
+var passwordLength = 
+      parseInt(prompt("Please choose amount of symbols from 8 to 128"))
+
+//create a function that will define password length
+function passLength(){
+      if(passwordLength<8 ||passwordLength>128){
+      alert("Error!Please choose amount of characters between 8 to 128")
+      return passLength()
+ } 
+//  return passwordLength;
+
+}
+passLength();
+
+
+
 
 //create AlmostaPassword and a MasterBucket
 
-// function makeAPassword(){
+//AlmostaPasswor its an array, that will contain at least one character from confirmed group of symbols-to make sure,that at least ONE symbol from approved group will go in the new password
+//MasterBucket its an array, that will serve as a bank of characters to increse new password till desired length
 
 function prePassword(){
 
-var AlmostaPassword =[];
-var MasterBucket =[];
-var confirms = 0;
 
 //ask what type of characters do user wants
 var choiceLC = confirm("Would you like to have lowercase letters?")
@@ -70,48 +95,22 @@ if (confirms === 0){
     alert("Please choose at least one group of characters")
     return prePassword()
 }
-// return AlmostaPassword;
-// return MasterBucket;
+
 console.log(AlmostaPassword)
 console.log(MasterBucket)
+
+//while there is a difference in amount of characters between Almostapassword and desired password length, keep adding characters  from MasterBucket to AlmostaPassword
+var difference = passwordLength-AlmostaPassword.length;
+
+for (i=0;i<difference;i++){
+    var randomChar =MasterBucket[Math.floor(Math.random() * MasterBucket.length)];
+    AlmostaPassword.push(randomChar);
+    AlmostaPassword.join;
+      console.log(AlmostaPassword)
+}
 }
 prePassword();
 
-
-function passLength(){
-  var passwordLength = 
-      parseInt(prompt("Please choose amount of symbols from 8 to 128"));
-      console.log(passwordLength)
-      if(passwordLength<8 ||passwordLength>128){
-      alert("Error!Please choose amount of characters between 8 to 128")
-      return passLength()
- } 
-//  return passwordLength;
-}
-passLength();
-
-//while there is a difference in amount of characters between Almostapassword and desired password length, keep adding characters  from MasterBucket to AlmostaPassword
-
-function newpassword() {
-   var newpassword = [];
-   var AlmostAPasswordlength = AlmostaPassword.length;
-   var randomCharacter  = MasterBucket[Math.floor(Math.random() * MasterBucket.length)];
-//    var charactersLength = characters.length;
-   for ( var i = AlmostAPasswordlength; i < passwordLength; i++ ) {
-      newpassword = newpassword.push(randomcharacter);
-      console.log(newpassword)
-   }
-  
-}
-// while( AlmostaPassword.length < passwordLength){
-// var randomChar = MasterBucket[Math.floor(Math.random() * MasterBucket.length)];
-// AlmostaPassword.push(randomChar);
-// console.log(AlmostaPassword)
-
-// }
-
-// }
-//  makeAPassword();
 //shufle Almostapassword 
 
 // newpassword = shuffle(AlmostaPassword)
@@ -135,6 +134,8 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
 
 // WHEN prompted for character types to include in the password
 // THEN I choose lowercase, uppercase, numeric, and/or special characters
