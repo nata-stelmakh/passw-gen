@@ -1,4 +1,9 @@
 # passw-gen
+https://nata-stelmakh.github.io/passw-gen/
+
+![]Screenshot%20(81).png
+
+
 1.Pseudo coding
 2.created a list of variables -strings, that contain characters for the future password
 3.created prompts
