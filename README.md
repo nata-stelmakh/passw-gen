@@ -1,7 +1,7 @@
 # passw-gen
 https://nata-stelmakh.github.io/passw-gen/
 
-![]Screenshot%20(81).png
+![](Screenshot%20(81).png)
 
 
 1.Pseudo coding
