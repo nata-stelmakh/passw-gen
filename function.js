@@ -21,22 +21,23 @@ function prePassword(){
     var specialChar ="~-_=+[]:;?!@#$%^&*".split("");
     var AlmostaPassword =[];
     var MasterBucket =[];
-    var passwordLength = 0;
+    var passwordLength =0
     var confirms = 0;
     // var newPassword = "";
     var hello = confirm("Hello! Welcome to the app! Would you like to create a password?")
-    var passwordLength = parseInt(prompt("Please choose amount of symbols from 8 to 128"))
+    // var passwordLength = prompt("Please choose amount of symbols from 8 to 128 ")
     //create AlmostaPassword and a MasterBucket
     
     function passLength(){
-    
-          if(passwordLength<8 ||passwordLength>128){
+          passwordLength = prompt("Please choose amount of symbols from 8 to 128 ")
+          if (passwordLength < 8 || passwordLength > 128){
           alert("Error!Please choose amount of characters between 8 to 128")
-          return passLength()
+          
+           return passLength()
      } 
-    
-    console.log(passwordLength)
-    }
+        console.log(passwordLength)
+     
+     }
     passLength();
     
     
@@ -122,5 +123,4 @@ function prePassword(){
     return newPassword;
     }
     
-    // generatePassword();
     
